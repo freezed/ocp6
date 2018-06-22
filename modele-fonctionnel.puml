@@ -1,0 +1,126 @@
+@startuml
+
+title Description du domaine fonctionnel
+
+/' = = = = = = = STYLE = = = = = = = '/
+' skinparam monochrome true
+skinparam linetype ortho
+
+!define table(x) class x << (T,#FFAAAA) >>
+!define primary_key(x) <b>PK: x</b>
+!define foreign_key(x,reference) <b>FK: </b>x
+
+/' = = = = = = = CLASSE = = = = = = = '/
+package PkgOrder {
+    class line_order
+    class order
+    class payment_history
+    class payment_solution
+
+    order -- line_order
+    order -- payment_history
+    payment_solution -up- payment_history
+}
+
+package PkgIngredient {
+    class composition
+    class ingredient
+    class pizza
+    class restaurant
+    class stock
+
+    ingredient - restaurant
+    (ingredient, restaurant) . stock
+
+    pizza - ingredient
+    (pizza, ingredient) . composition
+}
+
+package PkgAccount {
+    class adress
+    class buyer
+    class client
+    class employee
+
+    adress -- client
+    adress -- employee
+    buyer - client
+    buyer -up- employee
+
+}
+
+/' = = = = = = = ATTRIBUTE = = = = = = = '/
+
+/' - - PkgIngredient - - '/
+
+class composition {
+    pizza_id
+    ingredient_id
+    quantity
+}
+
+class ingredient {
+    id
+    label
+    pizza
+}
+
+class pizza {
+    id
+    name
+    price_ex_tax
+    tax_rate
+}
+
+class restaurant {
+    id
+    name
+}
+
+class stock {
+    ingredient_id
+    restaurant_id
+    quantity
+    unit
+}
+
+/' - - PkgOrder - - '/
+
+class line_order {
+    id
+    order_id
+    pizza_id
+    quantity
+    size
+    date
+}
+
+class order {
+    id
+    buyer_id
+    client_id
+    invoice_num
+    date
+}
+
+class payment_history {
+    payment_solution_id
+    order_id
+    amount
+    date
+}
+
+class payment_solution {
+    id
+    label
+}
+
+/' - - PkgAccount - - '/
+
+
+/' = = = = = = = RELATION INTER PKG = = = = = = = '/
+buyer -- order
+order -up- client
+restaurant - adress
+
+@enduml
