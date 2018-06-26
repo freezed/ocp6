@@ -22,11 +22,12 @@ _Ce document détaille les spécifications techniques du projet, pour une prése
 * de proposer un **aide mémoire** aux pizzaiolos indiquant la **recette de chaque pizza**
 * d’**informer** ou notifier **les clients** sur l’**état de leur commande**
 
+
 ## Description du domaine fonctionnel
 
-![](https://raw.githubusercontent.com/freezed/ocp6/master/modele-fonctionnel.png)
+![](https://raw.githubusercontent.com/freezed/ocp6/master/functional_model.png)
 
-[[`sources PlantUML`]](https://github.com/freezed/ocp6/blob/master/modele-fonctionnel.puml)
+[[`sources PlantUML`]](https://github.com/freezed/ocp6/blob/master/functional_model.puml)
 
 
 ## Composant
