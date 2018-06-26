@@ -14,7 +14,7 @@ _Ce document détaille les spécifications techniques du projet, pour une prése
 
 * d’être plus efficace dans la **gestion des commandes**, de leur **réception** à leur **livraison** en passant par leur **préparation**
 * de **suivre** en temps réel les **commandes passées** et en **préparation**
-* de **suivre** en temps réel le **stock d’ingrédients** restants pour savoir quelles **pizzas** sont encore réalisables**
+* de **suivre** en temps réel le **stock d’ingrédients** restants pour savoir quelles **pizzas sont encore réalisables**
 * de proposer un **site Internet** pour que les **clients** puissent :
     * **passer** leurs **commandes**, **en plus** de la prise de commande par **téléphone** ou **sur place**
     * **payer en ligne** leur commande **s’ils le souhaitent** – sinon, ils paieront directement **à la livraison**
@@ -26,7 +26,7 @@ _Ce document détaille les spécifications techniques du projet, pour une prése
 
 ![](https://raw.githubusercontent.com/freezed/ocp6/master/modele-fonctionnel.png)
 
-`[[sources PlantUML](https://github.com/freezed/ocp6/blob/master/modele-fonctionnel.puml)]`
+[[`sources PlantUML`]](https://github.com/freezed/ocp6/blob/master/modele-fonctionnel.puml)
 
 
 ## Composant
