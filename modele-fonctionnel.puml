@@ -117,6 +117,37 @@ class payment_solution {
 
 /' - - PkgAccount - - '/
 
+class address {
+    id
+    line1
+    line2
+    zip
+    city
+}
+
+class client {
+    id
+    1st_name
+    name
+    phone_id
+    delivery_address_id
+    billing_address_id
+}
+
+class employee {
+    id
+    1st_name
+    name
+    phone_id
+    home_address_id
+    restaurant_id
+}
+
+class phone {
+    id
+    number
+}
+
 
 /' = = = = = = = RELATION INTER PKG = = = = = = = '/
 buyer -- order
