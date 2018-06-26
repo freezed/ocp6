@@ -37,3 +37,7 @@ _Ce document détaille les spécifications techniques du projet, pour une prése
 
 
 ## Déploiement
+
+![](https://raw.githubusercontent.com/freezed/ocp6/master/deployment.png)
+
+[[`sources PlantUML`]](https://github.com/freezed/ocp6/blob/master/deployment.puml)

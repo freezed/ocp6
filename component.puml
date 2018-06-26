@@ -19,11 +19,11 @@ database database
 
 client -down- internet
 bank -up- internet
-internet - frontoffice
+internet -left- frontoffice
 employee -down- frontoffice
 employee - backoffice
 
-frontoffice - database
-database - backoffice
+frontoffice -down- database
+database -up- backoffice
 
 @enduml
