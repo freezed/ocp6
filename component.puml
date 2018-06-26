@@ -1,0 +1,29 @@
+@startuml
+
+title Détails des composants interne/externe
+
+/' = = = = = = = COMPONENT = = = = = = = '/
+
+actor client
+actor employee
+actor bank
+
+cloud internet
+
+node frontoffice
+node backoffice
+
+database database
+
+/' = = = = = = = RELATION = = = = = = = '/
+
+client -down- internet
+bank -up- internet
+internet - frontoffice
+employee -down- frontoffice
+employee - backoffice
+
+frontoffice - database
+database - backoffice
+
+@enduml

@@ -31,8 +31,9 @@ _Ce document détaille les spécifications techniques du projet, pour une prése
 
 ## Composant
 
-### Internes
+![](https://raw.githubusercontent.com/freezed/ocp6/master/component.png)
 
-### Externes
+[[`sources PlantUML`]](https://github.com/freezed/ocp6/blob/master/component.puml)
+
 
 ## Déploiement
