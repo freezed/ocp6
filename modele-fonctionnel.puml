@@ -17,9 +17,9 @@ package PkgOrder {
     class payment_history
     class payment_solution
 
-    order -- line_order
-    order -- payment_history
-    payment_solution -up- payment_history
+    line_order -left- order
+    order -up- payment_history
+    payment_solution -down- payment_history
 }
 
 package PkgIngredient {
@@ -30,23 +30,21 @@ package PkgIngredient {
     class stock
 
     ingredient - restaurant
-    (ingredient, restaurant) . stock
+    (ingredient, restaurant) .. stock
 
     pizza - ingredient
-    (pizza, ingredient) . composition
+    (pizza, ingredient) .. composition
 }
 
 package PkgAccount {
-    class adress
-    class buyer
+    class address
     class client
     class employee
+    class phone
 
-    adress -- client
-    adress -- employee
-    buyer - client
-    buyer -up- employee
-
+    client -up- phone
+    client -left-  address
+    address -down- employee
 }
 
 /' = = = = = = = ATTRIBUTE = = = = = = = '/
@@ -97,7 +95,7 @@ class line_order {
 
 class order {
     id
-    buyer_id
+    employee_id
     client_id
     invoice_num
     date
@@ -150,8 +148,9 @@ class phone {
 
 
 /' = = = = = = = RELATION INTER PKG = = = = = = = '/
-buyer -- order
-order -up- client
-restaurant - adress
+employee - order
+order - client
+address -- restaurant
+employee -- restaurant
 
 @enduml
