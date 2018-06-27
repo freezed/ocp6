@@ -54,102 +54,102 @@ package PkgAccount {
 /' - - PkgAccount - - '/
 
 class address {
-    id
-    line1
-    line2
-    zip
-    city
+    id: Integer
+    line1: String
+    line2: String [0..1]
+    zip: String
+    city: String
 }
 
 class client {
-    id
-    1st_name
-    name
-    phone_id
-    delivery_address_id
-    billing_address_id
+    id: Integer
+    1st_name: String
+    name: String
+    phone_id: Integer [0..1]
+    delivery_address_id: Integer
+    billing_address_id: Integer [0..1]
 }
 
 class employee {
-    id
-    1st_name
-    name
-    phone_id
-    home_address_id
-    restaurant_id
+    id: Integer
+    1st_name: String
+    name: String
+    phone_id: Integer
+    home_address_id: Integer
+    restaurant_id: Integer
 }
 
 class phone {
-    id
-    number
+    id: Integer
+    number: String
 }
 
 
 /' - - PkgIngredient - - '/
 
 class composition {
-    pizza_id
-    ingredient_id
-    quantity
+    pizza_id: Integer
+    ingredient_id: Integer
+    quantity: Real
 }
 
 class ingredient {
-    id
-    label
-    pizza
+    id: Integer
+    label: String
 }
 
 class pizza {
-    id
-    name
-    price_ex_tax
-    tax_rate
+    id: Integer
+    name: String
+    unit_price_ex_tax: Real
+    tax_rate100: Real
 }
 
 class restaurant {
-    id
-    name
+    id: Integer
+    address_id: Integer
+    name: String
 }
 
 class stock {
-    ingredient_id
-    restaurant_id
-    quantity
-    unit
+    ingredient_id: Integer
+    restaurant_id: Integer
+    quantity: Real
+    unit: String
 }
 
 /' - - PkgOrder - - '/
 
 class line_order {
-    id
-    order_id
-    pizza_id
-    date
+    id: Integer
+    order_id: Integer
+    pizza_id: Integer
+    date: Date
     quantity
-    size
-    tax_rate100
-    unit_price_ex_tax
+    size: String
+    tax_rate100: Real
+    unit_price_ex_tax: Real
 }
 
 class order {
-    id
-    employee_id
-    client_id
-    invoice_num
-    date
-    status
+    id: Integer
+    employee_id: Integer
+    client_id: Integer
+    invoice_num: String
+    date: Date
+    status: String
 }
 
 class payment_history {
-    payment_solution_id
-    order_id
-    amount
-    date
+    payment_solution_id: Integer
+    order_id: Integer
+    amount: Real
+    date: Date
 }
 
 class payment_solution {
-    id
-    label
+    id: Integer
+    label: String
 }
 
 /' = = = = = = = RELATION INTER PKG = = = = = = = '/
