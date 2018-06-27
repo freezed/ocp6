@@ -26,27 +26,27 @@ _OC Pizza_ est un jeune groupe de pizzeria en plein essor et spécialisé dans l
 
 ### Simple
 
-![](https://raw.githubusercontent.com/freezed/ocp6/master/functional_model_light.png)
+![Modèle fonctionnel simple](https://raw.githubusercontent.com/freezed/ocp6/master/functional_model_light.png "Desription du modèle fonctionnel simple")
 
 [[`sources PlantUML`]](https://github.com/freezed/ocp6/blob/master/functional_model_light.puml)
 
 
 ### Complet
 
-![](https://raw.githubusercontent.com/freezed/ocp6/master/functional_model.png)
+![Modèle fonctionnel complet](https://raw.githubusercontent.com/freezed/ocp6/master/functional_model.png "Desription du modèle fonctionnel complet")
 
 [[`sources PlantUML`]](https://github.com/freezed/ocp6/blob/master/functional_model.puml)
 
 
 ## Composant
 
-![](https://raw.githubusercontent.com/freezed/ocp6/master/component.png)
+![Diagrame de composant](https://raw.githubusercontent.com/freezed/ocp6/master/component.png "Diagrame de composant")
 
 [[`sources PlantUML`]](https://github.com/freezed/ocp6/blob/master/component.puml)
 
 
 ## Déploiement
 
-![](https://raw.githubusercontent.com/freezed/ocp6/master/deployment.png)
+![Diagrame de déploiement](https://raw.githubusercontent.com/freezed/ocp6/master/deployment.png "Diagrame de déploiement")
 
 [[`sources PlantUML`]](https://github.com/freezed/ocp6/blob/master/deployment.puml)
