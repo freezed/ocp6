@@ -1,6 +1,6 @@
 @startuml
 
-title Description du domaine fonctionnel
+title Description du domaine fonctionnel complet
 
 /' = = = = = = = STYLE = = = = = = = '/
 ' skinparam monochrome true
@@ -17,9 +17,9 @@ package PkgOrder {
     class payment_history
     class payment_solution
 
-    line_order -left- order
-    order -up- payment_history
-    payment_solution -down- payment_history
+    line_order "0..*" -left- "1" order : "    "
+    order "1" -up- "0..*" payment_history
+    payment_solution "1" -down- "0..1" payment_history
 }
 
 package PkgIngredient {
@@ -29,10 +29,10 @@ package PkgIngredient {
     class restaurant
     class stock
 
-    ingredient - restaurant
+    ingredient "1..*" - "1..*" restaurant
     (ingredient, restaurant) .. stock
 
-    pizza - ingredient
+    pizza "1..*" - "1..*" ingredient
     (pizza, ingredient) .. composition
 }
 
@@ -42,9 +42,9 @@ package PkgAccount {
     class employee
     class phone
 
-    client -up- phone
-    client -left-  address
-    address -down- employee
+    client "1..*" -up- "1..*" phone
+    client "1..*" -left- "1..*" address
+    address "1" -down- "*" employee
 }
 
 /' = = = = = = = ATTRIBUTE = = = = = = = '/
@@ -99,6 +99,7 @@ class order {
     client_id
     invoice_num
     date
+    status
 }
 
 class payment_history {
@@ -148,9 +149,9 @@ class phone {
 
 
 /' = = = = = = = RELATION INTER PKG = = = = = = = '/
-employee - order
-order - client
-address -- restaurant
-employee -- restaurant
+employee "1" - "0..*" order
+order "0..*" - "1" client
+address "1" -- "1" restaurant
+employee "*" -- "1" restaurant
 
 @enduml
