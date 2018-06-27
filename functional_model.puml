@@ -11,15 +11,16 @@ skinparam linetype ortho
 !define foreign_key(x,reference) <b>FK: </b>x
 
 /' = = = = = = = CLASSE = = = = = = = '/
+
 package PkgOrder {
     class line_order
     class order
     class payment_history
     class payment_solution
 
-    line_order "0..*" -left- "1" order : "    "
-    order "1" -up- "0..*" payment_history
-    payment_solution "1" -down- "0..1" payment_history
+    line_order "*" -left- "1" order : "    "
+    order "1" -up- "*" payment_history
+    payment_solution "1" -down- "*" payment_history
 }
 
 package PkgIngredient {
@@ -42,12 +43,47 @@ package PkgAccount {
     class employee
     class phone
 
-    client "1..*" -up- "1..*" phone
+    client "1..*" - "1..*" phone
     client "1..*" -left- "1..*" address
     address "1" -down- "*" employee
+    phone "1..*" -right- "1..*" employee
 }
 
 /' = = = = = = = ATTRIBUTE = = = = = = = '/
+
+/' - - PkgAccount - - '/
+
+class address {
+    id
+    line1
+    line2
+    zip
+    city
+}
+
+class client {
+    id
+    1st_name
+    name
+    phone_id
+    delivery_address_id
+    billing_address_id
+}
+
+class employee {
+    id
+    1st_name
+    name
+    phone_id
+    home_address_id
+    restaurant_id
+}
+
+class phone {
+    id
+    number
+}
+
 
 /' - - PkgIngredient - - '/
 
@@ -88,9 +124,11 @@ class line_order {
     id
     order_id
     pizza_id
+    date
     quantity
     size
-    date
+    tax_rate100
+    unit_price_ex_tax
 }
 
 class order {
@@ -114,43 +152,9 @@ class payment_solution {
     label
 }
 
-/' - - PkgAccount - - '/
-
-class address {
-    id
-    line1
-    line2
-    zip
-    city
-}
-
-class client {
-    id
-    1st_name
-    name
-    phone_id
-    delivery_address_id
-    billing_address_id
-}
-
-class employee {
-    id
-    1st_name
-    name
-    phone_id
-    home_address_id
-    restaurant_id
-}
-
-class phone {
-    id
-    number
-}
-
-
 /' = = = = = = = RELATION INTER PKG = = = = = = = '/
-employee "1" - "0..*" order
-order "0..*" - "1" client
+employee "1" - "*" order
+order "*" - "1" client
 address "1" -- "1" restaurant
 employee "*" -- "1" restaurant
 
