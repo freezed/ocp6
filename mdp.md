@@ -1,4 +1,0 @@
-# MPD
----
-
-`…travail encours…`

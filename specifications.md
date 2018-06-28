@@ -50,3 +50,10 @@ _OC Pizza_ est un jeune groupe de pizzeria en plein essor et spécialisé dans l
 ![Diagrame de déploiement](https://raw.githubusercontent.com/freezed/ocp6/master/deployment.png "Diagrame de déploiement")
 
 [[`sources PlantUML`]](https://github.com/freezed/ocp6/blob/master/deployment.puml)
+
+
+## Modèle physique de donnée
+
+![Modèle physique de donnée](https://raw.githubusercontent.com/freezed/ocp6/master/data_model.png "Modèle physique de donnée")
+
+[[`sources PlantUML`]](https://github.com/freezed/ocp6/blob/master/data_model.puml)

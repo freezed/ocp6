@@ -1,0 +1,146 @@
+@startuml
+title Modèle physique de donnée
+
+/' = = = = = = = STYLE = = = = = = = '/
+skinparam linetype ortho
+
+!define table(x) class x << (T,#FFAAAA) >>
+!define primary_key(x) <b>PK: x</b>
+!define foreign_key(x,reference) <b>FK: </b>x
+
+/' = = = = = = = CLASSE = = = = = = = '/
+
+/' - - PkgAccount - - '/
+table(address) {
+    primary_key(id) INTEGER NOT NULL
+    ---
+    line1 VARCHAR(30) NOT NULL
+    line2 VARCHAR(30) [0..1]
+    zip VARCHAR(30) NOT NULL
+    city VARCHAR(30) NOT NULL
+}
+
+table(client) {
+    primary_key(id) INTEGER NOT NULL
+    foreign_key(billing_address_id, billing_address.id) INTEGER NOT NULL [0..1]
+    foreign_key(delivery_address_id, elivery_address.id) INTEGER NOT NULL
+    foreign_key(phone_id, phone.id) INTEGER NOT NULL [0..1]
+    ---
+    1st_name VARCHAR(30) NOT NULL
+    name VARCHAR(30) NOT NULL
+}
+
+table(employee) {
+    primary_key(id) INTEGER NOT NULL
+    foreign_key(home_address_id, home_address.id) INTEGER NOT NULL
+    foreign_key(phone_id, phone.id) INTEGER NOT NULL
+    foreign_key(restaurant_id, restaurant_.id) INTEGER NOT NULL
+    ---
+    1st_name VARCHAR(30) NOT NULL
+    name VARCHAR(30) NOT NULL
+}
+
+table(phone) {
+    primary_key(id) INTEGER NOT NULL
+    ---
+    number VARCHAR(30)
+}
+
+client "1..*" - "1..*" phone
+client "1..*" - "1..*" address
+address "1" -down- "*" employee
+phone "1..*" -right- "1..*" employee
+
+
+/' - - PkgIngredient - - '/
+table(composition) {
+    foreign_key(pizza_id, pizza.id) INTEGER NOT NULL
+    foreign_key(ingredient_id, ingredient.id) INTEGER NOT NULL
+    ---
+    quantity: DECIMAL(6,4) NOT NULL
+}
+
+table(ingredient) {
+    primary_key(id) INTEGER NOT NULL
+    ---
+    label VARCHAR(30) NOT NULL
+}
+
+table(pizza) {
+    primary_key(id) INTEGER NOT NULL
+    ---
+    name VARCHAR(30) NOT NULL
+    unit_price_ex_tax: DECIMAL(6,4) NOT NULL
+    tax_rate100: DECIMAL(6,4) NOT NULL
+}
+
+table(restaurant) {
+    primary_key(id) INTEGER NOT NULL
+    foreign_key(address_id, address.id) INTEGER NOT NULL
+    ---
+    name VARCHAR(30)
+}
+
+table(stock) {
+    foreign_key(ingredient_id, ingredient.id) INTEGER NOT NULL
+    foreign_key(restaurant_id, restaurant.id) INTEGER NOT NULL
+    ---
+    quantity: DECIMAL(6,4) NOT NULL
+    unit VARCHAR(30) NOT NULL
+}
+
+ingredient "1..*" - "1..*" restaurant
+(ingredient, restaurant) .. stock
+
+pizza "1..*" - "1..*" ingredient
+(pizza, ingredient) .. composition
+
+
+/' - - PkgOrder - - '/
+table(line_order) {
+    primary_key(id) INTEGER NOT NULL
+    foreign_key(order_id, order.id) INTEGER NOT NULL
+    foreign_key(pizza_id, pizza.id) INTEGER NOT NULL
+    ---
+    date DATE
+    quantity INTEGER NOT NULL
+    size VARCHAR(30) NOT NULL
+    tax_rate100: DECIMAL(6,4) NOT NULL
+    unit_price_ex_tax: DECIMAL(6,4) NOT NULL
+}
+
+table(order) {
+    primary_key(id) INTEGER NOT NULL
+    foreign_key(employee_id, employee.id) INTEGER NOT NULL
+    foreign_key(client_id, client.id) INTEGER NOT NULL
+    ---
+    invoice_num VARCHAR(30) NOT NULL
+    date DATE NOT NULL
+    status VARCHAR(30) NOT NULL
+}
+
+table(payment_history) {
+    foreign_key(payment_solution_id, payment_solution.id) INTEGER NOT NULL
+    foreign_key(order_id, order.id) INTEGER NOT NULL
+    ---
+    amount: DECIMAL(6,4) NOT NULL
+    date DATE NOT NULL
+}
+
+table(payment_solution) {
+    primary_key(id) INTEGER NOT NULL
+    ---
+    label VARCHAR(30) NOT NULL
+}
+
+line_order "*" - "1" order
+order "1" -up- "*" payment_history
+payment_solution "1" -down- "*" payment_history
+
+
+/' = = = = = = = RELATION INTER PKG = = = = = = = '/
+employee "1" - "*" order
+order "*" - "1" client
+address "1" -- "1" restaurant
+employee "*" -- "1" restaurant
+@enduml
