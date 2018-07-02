@@ -20,11 +20,12 @@ client "1*" - "1..2*" phone
 client "1..2*" -- "1..2*" address
 employee "1" - "*" order
 employee "*" -right- "1" restaurant
-ingredient "1..*" -down- "1..*" restaurant
+ingredient "1..*" -- "1..*" restaurant
 (ingredient, restaurant) .. stock
 line_order "*" -- "1" order
 line_order "1" - "*" pizza
 order "*" - "1" client
+order "1" - "*" restaurant
 order "1" -left- "*" payment_history
 payment_solution "1" -up- "*" payment_history
 phone "1" -- "1..2" employee
