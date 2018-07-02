@@ -11,46 +11,32 @@ skinparam linetype ortho
 /' = = = = = = = ATTRIBUTE = = = = = = = '/
 
 class address {
-    id: Integer
     line1: String
-    line2: String [0..1]
+    line2: String
     zip: String
     city: String
 }
 
 class client {
-    id: Integer
     1st_name: String
     name: String
-    phone_id: Integer [0..1]
-    delivery_address_id: Integer
-    billing_address_id: Integer [0..1]
 }
 
 class composition {
-    pizza_id: Integer
-    ingredient_id: Integer
     quantity: Real
 }
 
 class employee {
-    id: Integer
     1st_name: String
     name: String
-    phone_id: Integer
-    home_address_id: Integer
-    restaurant_id: Integer
 }
 
 class ingredient {
-    id: Integer
     label: String
+    unit: String
 }
 
 class line_order {
-    id: Integer
-    order_id: Integer
-    pizza_id: Integer
     date: Date
     quantity
     size: String
@@ -59,50 +45,36 @@ class line_order {
 }
 
 class order {
-    id: Integer
-    employee_id: Integer
-    client_id: Integer
     invoice_num: String
     date: Date
     status: String
 }
 
 class payment_history {
-    payment_solution_id: Integer
-    order_id: Integer
     amount: Real
     date: Date
 }
 
 class payment_solution {
-    id: Integer
     label: String
 }
 
 class pizza {
-    id: Integer
     name: String
     unit_price_ex_tax: Real
     tax_rate100: Real
 }
 
 class phone {
-    id: Integer
     number: String
 }
 
-
 class restaurant {
-    id: Integer
-    address_id: Integer
     name: String
 }
 
 class stock {
-    ingredient_id: Integer
-    restaurant_id: Integer
     quantity: Real
-    unit: String
 }
 
 @enduml
