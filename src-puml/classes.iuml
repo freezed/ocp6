@@ -16,16 +16,18 @@ class stock
 /' = = = = = = = RELATION = = = = = = = '/
 address "1" -- "1" restaurant
 address "1" -- "*" employee
-client "1..*" - "1..*" phone
-client "1..*" -- "1..*" address
+client "1..2*" -- "1..2*" address
+client "1*" - "1..2*" phone
 employee "1" - "*" order
 employee "*" -- "1" restaurant
 ingredient "1..*" - "1..*" restaurant
 (ingredient, restaurant) .. stock
 line_order "*" - "1" order
+line_order "1" - "*" pizza
 order "*" - "1" client
 order "1" -- "*" payment_history
 payment_solution "1" -up- "*" payment_history
-phone "1..*" -- "1..*" employee
+phone "1" -- "1..2" employee
+phone "1" -- "1" restaurant
 pizza "1..*" - "1..*" ingredient
 (pizza, ingredient) .. composition
