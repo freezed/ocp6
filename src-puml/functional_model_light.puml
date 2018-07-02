@@ -1,0 +1,12 @@
+@startuml
+
+title Description du domaine fonctionnel simple\n
+
+/' = = = = = = = STYLE = = = = = = = '/
+skinparam monochrome true
+skinparam linetype ortho
+
+/' = = = = = = = CLASSE = = = = = = = '/
+!includeurl https://raw.githubusercontent.com/freezed/ocp6/master/src-puml/classes.puml
+
+@enduml
