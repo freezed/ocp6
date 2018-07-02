@@ -22,9 +22,9 @@ table(address) {
 
 table(client) {
     primary_key(id) INTEGER NOT NULL
-    foreign_key(billing_address_id, billing_address.id) INTEGER NOT NULL [0..1]
-    foreign_key(delivery_address_id, elivery_address.id) INTEGER NOT NULL
-    foreign_key(phone_id, phone.id) INTEGER NOT NULL [0..1]
+    foreign_key(billing_address_id, address.id) INTEGER [0..1]
+    foreign_key(delivery_address_id, address.id) INTEGER NOT NULL
+    foreign_key(phone_id, phone.id) INTEGER [0..1]
     ---
     1st_name VARCHAR(30) NOT NULL
     name VARCHAR(30) NOT NULL
@@ -32,7 +32,7 @@ table(client) {
 
 table(employee) {
     primary_key(id) INTEGER NOT NULL
-    foreign_key(home_address_id, home_address.id) INTEGER NOT NULL
+    foreign_key(home_address_id, address.id) INTEGER NOT NULL
     foreign_key(phone_id, phone.id) INTEGER NOT NULL
     foreign_key(restaurant_id, restaurant_.id) INTEGER NOT NULL
     ---
@@ -102,7 +102,7 @@ table(line_order) {
     foreign_key(order_id, order.id) INTEGER NOT NULL
     foreign_key(pizza_id, pizza.id) INTEGER NOT NULL
     ---
-    date DATE
+    date DATETIME NOT NULL
     quantity INTEGER NOT NULL
     size VARCHAR(30) NOT NULL
     tax_rate100: DECIMAL(6,4) NOT NULL
@@ -115,7 +115,7 @@ table(order) {
     foreign_key(client_id, client.id) INTEGER NOT NULL
     ---
     invoice_num VARCHAR(30) NOT NULL
-    date DATE NOT NULL
+    date DATETIME NOT NULL
     status VARCHAR(30) NOT NULL
 }
 
@@ -124,7 +124,7 @@ table(payment_history) {
     foreign_key(order_id, order.id) INTEGER NOT NULL
     ---
     amount: DECIMAL(6,4) NOT NULL
-    date DATE NOT NULL
+    date DATETIME NOT NULL
 }
 
 table(payment_solution) {
@@ -143,4 +143,5 @@ employee "1" - "*" order
 order "*" - "1" client
 address "1" -- "1" restaurant
 employee "*" -- "1" restaurant
+
 @enduml
