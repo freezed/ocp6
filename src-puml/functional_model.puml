@@ -1,57 +1,14 @@
 @startuml
 
-title Description du domaine fonctionnel complet
+title Description du domaine fonctionnel\n Diagramme de classe.\n
 
 /' = = = = = = = STYLE = = = = = = = '/
-' skinparam monochrome true
 skinparam linetype ortho
 
-!define table(x) class x << (T,#FFAAAA) >>
-!define primary_key(x) <b>PK: x</b>
-!define foreign_key(x,reference) <b>FK: </b>x
-
 /' = = = = = = = CLASSE = = = = = = = '/
-
-package PkgOrder {
-    class line_order
-    class order
-    class payment_history
-    class payment_solution
-
-    line_order "*" -left- "1" order : "    "
-    order "1" -up- "*" payment_history
-    payment_solution "1" -down- "*" payment_history
-}
-
-package PkgIngredient {
-    class composition
-    class ingredient
-    class pizza
-    class restaurant
-    class stock
-
-    ingredient "1..*" - "1..*" restaurant
-    (ingredient, restaurant) .. stock
-
-    pizza "1..*" - "1..*" ingredient
-    (pizza, ingredient) .. composition
-}
-
-package PkgAccount {
-    class address
-    class client
-    class employee
-    class phone
-
-    client "1..*" - "1..*" phone
-    client "1..*" -left- "1..*" address
-    address "1" -down- "*" employee
-    phone "1..*" -right- "1..*" employee
-}
+!includeurl https://raw.githubusercontent.com/freezed/ocp6/master/src-puml/classes.iuml
 
 /' = = = = = = = ATTRIBUTE = = = = = = = '/
-
-/' - - PkgAccount - - '/
 
 class address {
     id: Integer
@@ -70,6 +27,12 @@ class client {
     billing_address_id: Integer [0..1]
 }
 
+class composition {
+    pizza_id: Integer
+    ingredient_id: Integer
+    quantity: Real
+}
+
 class employee {
     id: Integer
     1st_name: String
@@ -79,46 +42,10 @@ class employee {
     restaurant_id: Integer
 }
 
-class phone {
-    id: Integer
-    number: String
-}
-
-
-/' - - PkgIngredient - - '/
-
-class composition {
-    pizza_id: Integer
-    ingredient_id: Integer
-    quantity: Real
-}
-
 class ingredient {
     id: Integer
     label: String
 }
-
-class pizza {
-    id: Integer
-    name: String
-    unit_price_ex_tax: Real
-    tax_rate100: Real
-}
-
-class restaurant {
-    id: Integer
-    address_id: Integer
-    name: String
-}
-
-class stock {
-    ingredient_id: Integer
-    restaurant_id: Integer
-    quantity: Real
-    unit: String
-}
-
-/' - - PkgOrder - - '/
 
 class line_order {
     id: Integer
@@ -152,10 +79,30 @@ class payment_solution {
     label: String
 }
 
-/' = = = = = = = RELATION INTER PKG = = = = = = = '/
-employee "1" - "*" order
-order "*" - "1" client
-address "1" -- "1" restaurant
-employee "*" -- "1" restaurant
+class pizza {
+    id: Integer
+    name: String
+    unit_price_ex_tax: Real
+    tax_rate100: Real
+}
+
+class phone {
+    id: Integer
+    number: String
+}
+
+
+class restaurant {
+    id: Integer
+    address_id: Integer
+    name: String
+}
+
+class stock {
+    ingredient_id: Integer
+    restaurant_id: Integer
+    quantity: Real
+    unit: String
+}
 
 @enduml
