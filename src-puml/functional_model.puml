@@ -4,6 +4,8 @@ title Description du domaine fonctionnel\n Diagramme de classe.\n
 
 /' = = = = = = = STYLE = = = = = = = '/
 skinparam linetype ortho
+hide empty methods
+hide circle
 
 /' = = = = = = = CLASSE = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp6/master/src-puml/classes.iuml

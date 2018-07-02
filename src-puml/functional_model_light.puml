@@ -5,6 +5,7 @@ title Description du domaine fonctionnel\n
 /' = = = = = = = STYLE = = = = = = = '/
 skinparam monochrome true
 skinparam linetype ortho
+hide empty members
 
 /' = = = = = = = CLASSE = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp6/master/src-puml/classes.iuml
