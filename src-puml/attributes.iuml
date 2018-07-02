@@ -1,43 +1,25 @@
-@startuml
-
-title Description du domaine fonctionnel\n Diagramme de classe.\n
-
-/' = = = = = = = STYLE = = = = = = = '/
-' 'skinparam linetype ortho
-hide empty methods
-hide circle
-
-/' = = = = = = = CLASSE = = = = = = = '/
-!includeurl https://raw.githubusercontent.com/freezed/ocp6/master/src-puml/classes.iuml
-
 /' = = = = = = = ATTRIBUTE = = = = = = = '/
-
 class address {
     line1: String
     line2: String
     zip: String
     city: String
 }
-
 class client {
     1st_name: String
     name: String
 }
-
 class composition {
     quantity: Real
 }
-
 class employee {
     1st_name: String
     name: String
 }
-
 class ingredient {
     label: String
     unit: String
 }
-
 class line_order {
     date: Date
     quantity
@@ -45,38 +27,29 @@ class line_order {
     tax_rate100: Real
     unit_price_ex_tax: Real
 }
-
 class order {
     invoice_num: String
     date: Date
     status: String
 }
-
 class payment_history {
     amount: Real
     date: Date
 }
-
 class payment_solution {
     label: String
 }
-
 class pizza {
     name: String
     unit_price_ex_tax: Real
     tax_rate100: Real
 }
-
 class phone {
     number: String
 }
-
 class restaurant {
     name: String
 }
-
 class stock {
     quantity: Real
 }
-
-@enduml
