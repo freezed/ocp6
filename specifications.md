@@ -24,7 +24,7 @@ _OC Pizza_ est un jeune groupe de pizzeria en plein essor et spécialisé dans l
 
 ## Modèle fonctionnel
 
-### Simple
+### Simplifié
 
 ![Modèle fonctionnel simple](https://raw.githubusercontent.com/freezed/ocp6/master/functional_model_light.png "Desription du modèle fonctionnel simple")
 
@@ -40,20 +40,20 @@ _OC Pizza_ est un jeune groupe de pizzeria en plein essor et spécialisé dans l
 
 ## Composant
 
-![Diagrame de composant](https://raw.githubusercontent.com/freezed/ocp6/master/component.png "Diagrame de composant")
+![Diagramme de composant](https://raw.githubusercontent.com/freezed/ocp6/master/component.png "Diagramme de composant")
 
 [[`sources PlantUML`]](https://github.com/freezed/ocp6/blob/master/component.puml)
 
 
 ## Déploiement
 
-![Diagrame de déploiement](https://raw.githubusercontent.com/freezed/ocp6/master/deployment.png "Diagrame de déploiement")
+![Diagramme de déploiement](https://raw.githubusercontent.com/freezed/ocp6/master/deployment.png "Diagramme de déploiement")
 
 [[`sources PlantUML`]](https://github.com/freezed/ocp6/blob/master/deployment.puml)
 
 
 ## Modèle physique de donnée
 
-![Modèle physique de donnée](https://raw.githubusercontent.com/freezed/ocp6/master/data_model.png "Modèle physique de donnée")
+![Modèle physique de donnée](https://raw.githubusercontent.com/freezed/ocp6/master/physical_data_model.png "Modèle physique de donnée")
 
-[[`sources PlantUML`]](https://github.com/freezed/ocp6/blob/master/data_model.puml)
+[[`sources PlantUML`]](https://github.com/freezed/ocp6/blob/master/physical_data_model.puml)
