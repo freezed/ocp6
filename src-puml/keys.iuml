@@ -1,0 +1,53 @@
+/' = = = = = = = KEY = = = = = = = '/
+class address {
+    pyk(id,Integer)
+}
+class client {
+    pyk(id, Integer)
+    fnk(delivery_address_id,address.id)
+    fnk(billing_address_id,address.id)
+}
+class composition {
+    pfk(piza_id,pizza.id)
+    pfk(igredient_id,ingredient.id)
+}
+class employee {
+    pyk(id,Integer)
+    fnk(address_id,address.id)
+    fnk(phone_id,phone.id)
+    fnk(restaurant_id,restaurant.id)
+}
+class ingredient {
+    pyk(id,Integer)
+}
+class line_order {
+    pyk(id,Integer)
+    fnk(order_id,order.id)
+    fnk(pizza_id,pizza.id)
+}
+class order {
+    pyk(id,Integer)
+    fnk(employee_id,employee.id)
+    fnk(client_id,client.id)
+}
+class payment_history {
+    pfk(payment_solution_id,payment_solution.id)
+    pfk(order_id,order.id)
+}
+class payment_solution {
+    pyk(id,Integer)
+}
+class phone {
+    pyk(id,Integer)
+}
+class pizza {
+    pyk(id,Integer)
+}
+class restaurant {
+    pyk(id,Integer)
+    fnk(address_id,address.id)
+}
+class stock {
+    pfk(ingredient_id,ingredient.id)
+    pfk(restaurant_id,restaurant.id)
+}
