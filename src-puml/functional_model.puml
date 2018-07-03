@@ -1,9 +1,13 @@
 @startuml
 
-title Description du domaine fonctionnel\n Diagramme de classe.\n
+title Description du domaine fonctionnel\n <i>(complet)</i>\n
 
 /' = = = = = = = STYLE = = = = = = = '/
 hide empty methods
+hide <<assoc>> circle
+skinparam class {
+    BackgroundColor<<assoc>> lightblue
+}
 
 /' = = = = = = = MACRO = = = = = = = '/
 !define rel(a,b,c,d,e) a "b" c "d" e

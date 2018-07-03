@@ -1,11 +1,14 @@
 @startuml
 
-title Description du domaine fonctionnel\n
+title Description du domaine fonctionnel\n <i>(simplifié)</i>\n
 
 /' = = = = = = = STYLE = = = = = = = '/
 skinparam monochrome true
 hide empty methods
-
+hide <<assoc>> circle
+skinparam class {
+    BackgroundColor<<assoc>> lightblue
+}
 /' = = = = = = = MACRO = = = = = = = '/
 !define rel(a,b,c,d,e) a c e
 !define rea(a,b,c,d) (a, b) c d
@@ -15,6 +18,5 @@ hide empty methods
 
 /' = = = = = = = ASSOCIATION = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp6/master/src-puml/associations.iuml
-
 
 @enduml
