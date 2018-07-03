@@ -6,6 +6,12 @@ title Description du domaine fonctionnel\n
 skinparam monochrome true
 hide empty methods
 
+/' = = = = = = = MACRO = = = = = = = '/
+!define tbl(n) class n << (T,chartreuse) >>
+!define tba(n) class n << (T,lightblue) >>
+!define rel(a,b,c,d,e) a c e
+!define rea(a,b,c,d) (a, b) c d
+
 /' = = = = = = = CLASSE = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp6/master/src-puml/classes.iuml
 
