@@ -1,0 +1,33 @@
+@startuml
+
+title Modèle physique de donnée\n
+/' = = = = = = = STYLE = = = = = = = '/
+hide empty methods
+hide circle
+skinparam class {
+    BackgroundColor<<assoc>> lightblue
+}
+
+/' = = = = = = = MACRO = = = = = = = '/
+!define rel(a,b,c,d,e) a c e
+!define rea(a,b,c,d) (a, b) c d
+!define pyk(n,t="Integer") <font color="red"><b>PK : n</b> t</font>
+!define fnk(n,r,t="Integer") <font color="blue"><b>FK :</b> n </font>
+!define pfk(n,r,t="Integer") <font color="orangered"><b>PFK :</b> n</font>
+
+/' = = = = = = = CLASSE = = = = = = = '/
+!includeurl https://raw.githubusercontent.com/freezed/ocp6/master/src-puml/classes.iuml
+
+/' = = = = = = = KEY = = = = = = = '/
+!includeurl https://raw.githubusercontent.com/freezed/ocp6/master/src-puml/keys.iuml
+
+/' = = = = = = = ATTRIBUTE = = = = = = = '/
+!includeurl https://raw.githubusercontent.com/freezed/ocp6/master/src-puml/attributes.iuml
+
+/' = = = = = = = ASSOCIATION = = = = = = = '/
+rel(pizza,.,-,.,composition)
+rel(composition,.,-,.,ingredient)
+rel(ingredient,.,--,.,stock)
+rel(stock,.,--,.,restaurant)
+
+@enduml
