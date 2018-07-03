@@ -1,7 +1,7 @@
 /' = = = = = = = CLASSE = = = = = = = '/
 class address
 class client
-class composition
+class composition <<assoc>>
 class employee
 class ingredient
 class line_order
@@ -11,7 +11,7 @@ class payment_solution
 class phone
 class pizza
 class restaurant
-class stock
+class stock <<assoc>>
 
 /' = = = = = = = RELATION = = = = = = = '/
 rel(address,1,--,1,restaurant)
@@ -20,8 +20,6 @@ rel(client,1,--,1..2,phone)
 rel(client,1..2,--,1..2,address)
 rel(employee,1,-,*,order)
 rel(employee,*,-right-,1,restaurant)
-rel(ingredient,1..*,--,1..*,restaurant)
-rea(ingredient,restaurant,..,stock)
 rel(line_order,*,--,1,order)
 rel(line_order,1,-,*,pizza)
 rel(order,*,-,1,client)
@@ -30,5 +28,3 @@ rel(order,1,-left-,*,payment_history)
 rel(payment_solution,1,-up-,*,payment_history)
 rel(phone,1,--,1..2,employee)
 rel(phone,1,--,1,restaurant)
-rel(pizza,1..*,-,1..*,ingredient)
-rea(pizza,ingredient,..,composition)

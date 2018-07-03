@@ -6,8 +6,6 @@ title Description du domaine fonctionnel\n Diagramme de classe.\n
 hide empty methods
 
 /' = = = = = = = MACRO = = = = = = = '/
-!define tbl(n) class n << (T,chartreuse) >>
-!define tba(n) class n << (T,lightblue) >>
 !define rel(a,b,c,d,e) a "b" c "d" e
 !define rea(a,b,c,d) (a, b) c d
 
@@ -16,5 +14,8 @@ hide empty methods
 
 /' = = = = = = = ATTRIBUTE = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp6/master/src-puml/attributes.iuml
+
+/' = = = = = = = ASSOCIATION = = = = = = = '/
+!includeurl https://raw.githubusercontent.com/freezed/ocp6/master/src-puml/associations.iuml
 
 @enduml

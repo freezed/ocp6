@@ -1,0 +1,5 @@
+/' = = = = = = = ASSOCIATION = = = = = = = '/
+rel(pizza,1..*,-,1..*,ingredient)
+rea(pizza,ingredient,..,composition)
+rel(ingredient,1..*,--,1..*,restaurant)
+rea(ingredient,restaurant,..,stock)
