@@ -9,6 +9,7 @@ hide <<assoc>> circle
 skinparam class {
     BackgroundColor<<assoc>> lightblue
 }
+
 /' = = = = = = = MACRO = = = = = = = '/
 !define rel(a,b,c,d,e) a c e
 !define rea(a,b,c,d) (a, b) c d
