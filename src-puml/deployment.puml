@@ -3,13 +3,15 @@ title Diagrame de déploiement «OCpizza»
 
 /' = = = = = = = STYLE = = = = = = = '/
 ' skinparam monochrome true
-skinparam linetype ortho
+' skinparam linetype ortho
+
+actor "bank"
+actor "employee"
+actor "client"
 
 /' = = = = = = = ARTIFACT = = = = = = = '/
 
 Frame  "OCpizza" <<Deployment>> {
-
-/' - - PkgAccount - - '/
 
     node "Apache HTTP server" as ws {
         node "virtualHost Front" as vhf
@@ -17,25 +19,21 @@ Frame  "OCpizza" <<Deployment>> {
         artifact "Django app" as dapp
     }
 
-/' - - PkgAccount - - '/
-
     database "MariaDB server" as dbs {
         file "create-db.sql" as scriptdb
-        rectangle "Database" as db {
-            artifact "table1"
-            artifact "table2"
-            artifact "table3"
-            artifact "table…"
-        }
+        rectangle "Database" as db
     }
-
 }
 
 /' = = = = = = = RELATION = = = = = = = '/
 
-dbs - ws
+bank -up- dapp
+client - dapp
+employee - dapp
+
+ws - dbs
 vhf -- dapp
 dapp -up- vhb
-scriptdb . db
+scriptdb .. db
 
 @enduml
