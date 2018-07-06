@@ -1,5 +1,7 @@
 /' = = = = = = = ATTRIBUTE = = = = = = = '/
 class address {
+    Label: String
+    name: String
     line1: String
     line2: String
     zip: String
@@ -8,6 +10,8 @@ class address {
 class client {
     1st_name: String
     name: String
+    login: String
+    password: String
 }
 class composition {
     quantity: Real
@@ -15,6 +19,8 @@ class composition {
 class employee {
     1st_name: String
     name: String
+    login: String
+    password: String
 }
 class ingredient {
     label: String
@@ -22,8 +28,7 @@ class ingredient {
 }
 class line_order {
     date: Date
-    quantity
-    size: String
+    quantity: Integer
     tax_rate100: Real
     unit_price_ex_tax: Real
 }

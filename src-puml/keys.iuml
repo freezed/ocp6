@@ -8,14 +8,13 @@ class client {
     fnk(billing_address_id,address.id)
 }
 class composition {
-    pfk(piza_id,pizza.id)
-    pfk(igredient_id,ingredient.id)
+    pfk(pizza_id,pizza.id)
+    pfk(ingredient_id,ingredient.id)
 }
 class employee {
     pyk(id,Integer)
     fnk(address_id,address.id)
     fnk(phone_id,phone.id)
-    fnk(restaurant_id,restaurant.id)
 }
 class ingredient {
     pyk(id,Integer)
@@ -29,6 +28,7 @@ class order {
     pyk(id,Integer)
     fnk(employee_id,employee.id)
     fnk(client_id,client.id)
+    fnk(restaurant_id,restaurant.id)
 }
 class payment_history {
     pfk(payment_solution_id,payment_solution.id)
@@ -46,6 +46,7 @@ class pizza {
 class restaurant {
     pyk(id,Integer)
     fnk(address_id,address.id)
+    fnk(phone_id,phone.id)
 }
 class stock {
     pfk(ingredient_id,ingredient.id)
