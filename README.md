@@ -15,7 +15,7 @@ _La dernière version à jour de ce document est disponible sur [github](https:/
     * une description du domaine fonctionnel
     * les différents composants du système et les composants externes utilisés par celui-ci et leur interaction
     * la description de l’organisation physique de ces composants (déploiement)
-* Le [modèle physique de données (MPD)](https://github.com/freezed/ocp6/blob/master/mpd.md)
+* Le [modèle physique de données (PDM)](https://raw.githubusercontent.com/freezed/ocp6/master/physical_data_model.png "Modèle physique de donnée")
 * Une [base de données MySQL](https://github.com/freezed/ocp6/blob/master/sql/) avec un jeu de données de démo :
     * un dump de votre base de données
     * l’ensemble des scripts SQL de création de la base de données et du jeu de données de démo
