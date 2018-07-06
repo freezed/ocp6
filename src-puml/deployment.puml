@@ -28,12 +28,13 @@ Frame  "OCpizza" <<Deployment>> {
 /' = = = = = = = RELATION = = = = = = = '/
 
 bank -up- dapp
-client - dapp
-employee - dapp
+client -- vhf
+employee -- vhb
 
-ws - dbs
+ws -- dbs
 vhf -- dapp
 dapp -up- vhb
-scriptdb .. db
+
+scriptdb . db
 
 @enduml
