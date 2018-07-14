@@ -21,7 +21,7 @@ INSERT INTO `ocp6`.`ingredient`(`label`,`unit`)VALUES
 ("bœuf","g"),
 ("champigon","g"),
 ("emmental","g"),
-("jamcuster","g"),
+("jambon","g"),
 ("mozzarella","g"),
 ("œuf","unité"),
 ("oignon","g"),
@@ -96,10 +96,10 @@ INSERT INTO `ocp6`.`composition`(`pizza_id`,`ingredient_id`,`quantity`)VALUES
 (5,4,50),
 (5,3,60),
 (5,2,50),
-(6,11,40),
-(6,7,60),
-(6,6,50),
-(6,5,60);
+(6,11,1),
+(6,7,1),
+(6,6,1),
+(6,5,1);
 
 INSERT INTO `ocp6`.`basket`(`employee_id`,`client_id`,`restaurant_id`,`invoice_num`,`date`,`status`)VALUES
 (4,1,2,"18000001","2018-01-29 11:11:11","archive"),
