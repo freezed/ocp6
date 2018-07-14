@@ -61,16 +61,17 @@ CREATE TABLE client(
 ) ENGINE=INNODB;
 
 CREATE TABLE composition(
-    `pizza_id` SMALLINT UNSIGNED NOT NULL PRIMARY KEY,
+    `pizza_id` SMALLINT UNSIGNED NOT NULL,
     CONSTRAINT `fk_composition_pizza`
         FOREIGN KEY (pizza_id)
         REFERENCES pizza(id)
         ON DELETE CASCADE ON UPDATE RESTRICT,
-    `ingredient_id` SMALLINT UNSIGNED NOT NULL PRIMARY KEY,
+    `ingredient_id` SMALLINT UNSIGNED NOT NULL,
     CONSTRAINT `fk_composition_ingredient`
         FOREIGN KEY(ingredient_id)
         REFERENCES ingredient(id)
         ON DELETE CASCADE ON UPDATE RESTRICT,
+    CONSTRAINT `composition_pfk` PRIMARY KEY(pizza_id, ingredient_id),
     `quantity` DECIMAL(6,2)
 ) ENGINE=INNODB;
 
@@ -156,6 +157,7 @@ CREATE TABLE payment_history(
         FOREIGN KEY(basket_id)
         REFERENCES basket(id)
         ON DELETE CASCADE ON UPDATE RESTRICT,
+    CONSTRAINT `composition_pfk` PRIMARY KEY(payment_solution_id, basket_id),
     `amount` DECIMAL(6,2),
     `date` DATE
 ) ENGINE=INNODB;
@@ -171,5 +173,6 @@ CREATE TABLE stock(
         FOREIGN KEY(restaurant_id)
         REFERENCES restaurant(id)
         ON DELETE CASCADE ON UPDATE RESTRICT,
+    CONSTRAINT `composition_pfk` PRIMARY KEY(ingredient_id, restaurant_id),
     `quantity` DECIMAL(6,2)
 ) ENGINE=INNODB;
