@@ -43,17 +43,17 @@ CREATE TABLE client(
     CONSTRAINT `fk_client_billing_address`
         FOREIGN KEY(billing_address_id)
         REFERENCES address(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
     `delivery_address_id` SMALLINT UNSIGNED NOT NULL,
     CONSTRAINT `fk_client_delivery_address`
         FOREIGN KEY(delivery_address_id)
         REFERENCES address(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
     `phone_id` SMALLINT UNSIGNED NOT NULL,
     CONSTRAINT `fk_client_phone`
         FOREIGN KEY(phone_id)
         REFERENCES phone(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
     `1st_name` VARCHAR(30) NOT NULL,
     `name` VARCHAR(30) NOT NULL,
     `login` VARCHAR(30) NOT NULL,
@@ -61,16 +61,16 @@ CREATE TABLE client(
 ) ENGINE=INNODB;
 
 CREATE TABLE composition(
-    `pizza_id` SMALLINT UNSIGNED NOT NULL,
+    `pizza_id` SMALLINT UNSIGNED NOT NULL PRIMARY KEY,
     CONSTRAINT `fk_composition_pizza`
         FOREIGN KEY (pizza_id)
         REFERENCES pizza(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
-    `ingredient_id` SMALLINT UNSIGNED NOT NULL,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
+    `ingredient_id` SMALLINT UNSIGNED NOT NULL PRIMARY KEY,
     CONSTRAINT `fk_composition_ingredient`
         FOREIGN KEY(ingredient_id)
         REFERENCES ingredient(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
     `quantity` DECIMAL(6,2)
 ) ENGINE=INNODB;
 
@@ -80,12 +80,12 @@ CREATE TABLE employee(
     CONSTRAINT `fk_employee_address`
         FOREIGN KEY(address_id)
         REFERENCES address(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
     `phone_id` SMALLINT UNSIGNED NOT NULL,
     CONSTRAINT `fk_phone_employee`
         FOREIGN KEY (phone_id)
         REFERENCES  phone(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
     `1st_name` VARCHAR(30) NOT NULL,
     `name` VARCHAR(30) NOT NULL
 ) ENGINE=INNODB;
@@ -96,13 +96,13 @@ CREATE TABLE restaurant(
     CONSTRAINT `fk_restaurant_address`
         FOREIGN KEY (address_id)
         REFERENCES  address(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
     `name` VARCHAR(30) NOT NULL,
     `phone_id` SMALLINT UNSIGNED NOT NULL,
     CONSTRAINT `fk_restaurant_hone`
         FOREIGN KEY(phone_id)
         REFERENCES phone(id)
-        ON DELETE CASCADE ON UPDATE CASCADE
+        ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=INNODB;
 
 CREATE TABLE basket(
@@ -111,17 +111,17 @@ CREATE TABLE basket(
     CONSTRAINT `fk_basket_employee`
         FOREIGN KEY(employee_id)
         REFERENCES employee(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
     `client_id` SMALLINT UNSIGNED NOT NULL,
     CONSTRAINT `fk_basket_client`
         FOREIGN KEY(client_id)
         REFERENCES client(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
     `restaurant_id` SMALLINT UNSIGNED NOT NULL,
     CONSTRAINT `fk_basket_restaurant`
         FOREIGN KEY(restaurant_id)
         REFERENCES restaurant(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
     `invoice_num` VARCHAR(30) NOT NULL,
     `date` DATE,
     `status` VARCHAR(30) NOT NULL
@@ -133,12 +133,12 @@ CREATE TABLE line_basket(
     CONSTRAINT `fk_line_basket_basket`
         FOREIGN KEY(basket_id)
         REFERENCES basket(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
     `pizza_id` SMALLINT UNSIGNED NOT NULL,
     CONSTRAINT `fk_line_basket_pizza`
         FOREIGN KEY(pizza_id)
         REFERENCES pizza(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
     `date` DATE,
     `quantity` INTEGER,
     `tax_rate100` DECIMAL(6,2),
@@ -150,12 +150,12 @@ CREATE TABLE payment_history(
     CONSTRAINT `fk_payment_history_payment_solution`
         FOREIGN KEY(payment_solution_id)
         REFERENCES payment_solution(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
     `basket_id` SMALLINT UNSIGNED NOT NULL,
     CONSTRAINT `fk_payment_history_basket`
         FOREIGN KEY(basket_id)
         REFERENCES basket(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
     `amount` DECIMAL(6,2),
     `date` DATE
 ) ENGINE=INNODB;
@@ -165,11 +165,11 @@ CREATE TABLE stock(
     CONSTRAINT `fk_stock_ingredient`
         FOREIGN KEY(ingredient_id)
         REFERENCES ingredient(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
     `restaurant_id` SMALLINT UNSIGNED NOT NULL,
     CONSTRAINT `fk_stock_restaurant`
         FOREIGN KEY(restaurant_id)
         REFERENCES restaurant(id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+        ON DELETE CASCADE ON UPDATE RESTRICT,
     `quantity` DECIMAL(6,2)
 ) ENGINE=INNODB;
