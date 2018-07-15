@@ -10,6 +10,7 @@ class address {
 class client {
     1st_name: String
     name: String
+    mail: String
     login: String
     password: String
 }
@@ -19,6 +20,7 @@ class composition {
 class employee {
     1st_name: String
     name: String
+    mail: String
     login: String
     password: String
 }
@@ -27,7 +29,6 @@ class ingredient {
     unit: String
 }
 class line_order {
-    date: Date
     quantity: Integer
     tax_rate100: Real
     unit_price_ex_tax: Real
