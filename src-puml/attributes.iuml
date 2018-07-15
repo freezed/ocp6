@@ -1,61 +1,61 @@
 /' = = = = = = = ATTRIBUTE = = = = = = = '/
 class address {
-    Label: String
-    name: String
-    line1: String
-    line2: String
-    zip: String
-    city: String
+    att(Label,String,VARCHAR(30))
+    att(name,String,VARCHAR(30))
+    att(line1,String,VARCHAR(20))
+    att(line2,String,VARCHAR(20))
+    att(zip,String,VARCHAR(5))
+    att(city,String,VARCHAR(20))
 }
 class client {
-    1st_name: String
-    name: String
-    mail: String
-    login: String
-    password: String
+    att(1st_name,String,VARCHAR(30))
+    att(name,String,VARCHAR(30))
+    att(mail,String,VARCHAR(30))
+    att(login,String,VARCHAR(30))
+    att(password,String,VARCHAR(30))
 }
 class composition {
-    quantity: Real
+    att(quantity,Real,DECIMAL(6,2))
 }
 class employee {
-    1st_name: String
-    name: String
-    mail: String
-    login: String
-    password: String
+    att(1st_name,String,VARCHAR(30))
+    att(name,String,VARCHAR(30))
+    att(mail,String,VARCHAR(30))
+    att(login,String,VARCHAR(30))
+    att(password,String,VARCHAR(30))
 }
 class ingredient {
-    label: String
-    unit: String
+    label,String,VARCHAR(30))
+    att(unit,String,VARCHAR(30))
 }
 class line_basket {
-    quantity: Integer
-    tax_rate100: Real
-    unit_price_ex_tax: Real
+    att(quantity,Integer,INTEGER)
+    att(tax_rate100,Real,DECIMAL(6,2))
+    att(unit_price_ex_tax,Real,DECIMAL(6,2))
 }
 class basket {
-    invoice_num: String
-    date: Date
-    status: String
+    att(invoice_num,String,VARCHAR(10))
+    att(date,Date,DATETIME)
+    att(status,String,VARCHAR(10))
 }
 class payment_history {
-    amount: Real
-    date: Date
+    att(amount,Real,DECIMAL(6,2))
+    att(date,Date,DATETIME)
 }
 class payment_solution {
-    label: String
+    att(label,String,VARCHAR(30))
 }
 class pizza {
-    name: String
-    unit_price_ex_tax: Real
-    tax_rate100: Real
+    att(name,String,VARCHAR(10))
+    att(unit_price_ex_tax,Real,DECIMAL(6,2))
+    att(tax_rate100,Real,DECIMAL(6,2))
 }
 class phone {
-    number: String
+    att(number,String,VARCHAR(10))
 }
 class restaurant {
-    name: String
+    att(name,String,VARCHAR(10))
 }
 class stock {
-    quantity: Real
+    att(quantity,Real,DECIMAL(6,2))
 }

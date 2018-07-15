@@ -12,9 +12,10 @@ skinparam class {
 /' = = = = = = = MACRO = = = = = = = '/
 !define rel(a,b,c,d,e) a c e
 !define rea(a,b,c,d) (a, b) c d
-!define pyk(n,t="Integer") <font color="red"><b>PK : n</b> t</font>
-!define fnk(n,r,t="Integer") <font color="blue"><b>FK :</b> n </font>
-!define pfk(n,r,t="Integer") <font color="orangered"><b>PFK :</b> n</font>
+!define pyk(n,t="INTEGER") <font color="red">n : t [PK]</font>
+!define fnk(n,r,t="INTEGER") <font color="blue">n : t [FK]</font>
+!define pfk(n,r,t="INTEGER") <font color="orangered">n : t [PFK]</font>
+!define att(n,u,s) n : s
 
 /' = = = = = = = CLASSE = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp6/master/src-puml/classes.iuml
