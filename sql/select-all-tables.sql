@@ -46,7 +46,6 @@ FROM `ocp6`.`ingredient`;
 SELECT `line_basket`.`id`,
     `line_basket`.`basket_id`,
     `line_basket`.`pizza_id`,
-    `line_basket`.`date`,
     `line_basket`.`quantity`,
     `line_basket`.`tax_rate100`,
     `line_basket`.`unit_price_ex_tax`

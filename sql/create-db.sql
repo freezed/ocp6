@@ -140,7 +140,6 @@ CREATE TABLE line_basket(
         FOREIGN KEY(pizza_id)
         REFERENCES pizza(id)
         ON DELETE CASCADE ON UPDATE RESTRICT,
-    `date` DATE,
     `quantity` INTEGER,
     `tax_rate100` DECIMAL(6,2),
     `unit_price_ex_tax` DECIMAL(6,2)
@@ -173,6 +172,6 @@ CREATE TABLE stock(
         FOREIGN KEY(restaurant_id)
         REFERENCES restaurant(id)
         ON DELETE CASCADE ON UPDATE RESTRICT,
-    CONSTRAINT `composition_pfk` PRIMARY KEY(ingredient_id, restaurant_id),
+    CONSTRAINT `pfk_composition` PRIMARY KEY(ingredient_id, restaurant_id),
     `quantity` DECIMAL(6,2)
 ) ENGINE=INNODB;
