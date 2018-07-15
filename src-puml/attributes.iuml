@@ -28,12 +28,12 @@ class ingredient {
     label: String
     unit: String
 }
-class line_order {
+class line_basket {
     quantity: Integer
     tax_rate100: Real
     unit_price_ex_tax: Real
 }
-class order {
+class basket {
     invoice_num: String
     date: Date
     status: String
