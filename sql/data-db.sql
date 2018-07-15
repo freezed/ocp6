@@ -76,13 +76,13 @@ INSERT INTO `ocp6`.`employee`(`address_id`,`phone_id`,`1st_name`,`name`)VALUES
 (11,12,"bronsky","proko");
 
 INSERT INTO `ocp6`.`composition`(`pizza_id`,`ingredient_id`,`quantity`)VALUES
-(1,11,50),
+(1,11,60),
 (1,4,70),
 (1,3,40),
 (1,2,70),
-(2,11,40),
+(2,11,60),
 (2,7,40),
-(2,6,70),
+(2,6,1),
 (2,5,40),
 (3,11,60),
 (3,10,60),
@@ -90,16 +90,16 @@ INSERT INTO `ocp6`.`composition`(`pizza_id`,`ingredient_id`,`quantity`)VALUES
 (3,8,50),
 (4,13,60),
 (4,12,70),
-(4,11,70),
+(4,11,60),
 (4,1,40),
-(5,11,50),
+(5,11,60),
 (5,4,50),
 (5,3,60),
 (5,2,50),
-(6,11,1),
+(6,11,60),
 (6,7,1),
 (6,6,1),
-(6,5,1);
+(6,5,50);
 
 INSERT INTO `ocp6`.`basket`(`employee_id`,`client_id`,`restaurant_id`,`invoice_num`,`date`,`status`)VALUES
 (4,1,2,"18000001","2018-01-29 11:11:11","archive"),
@@ -143,7 +143,7 @@ INSERT INTO `ocp6`.`stock`(`ingredient_id`,`restaurant_id`,`quantity`)VALUES
 (12,1,2900),
 (13,1,3100),
 (1,2,3200),
-(2,2,2200),
+(2,2,0),
 (3,2,3100),
 (4,2,2800),
 (5,2,2900),
