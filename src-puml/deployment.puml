@@ -5,7 +5,7 @@ title Diagrame de déploiement «OCpizza»
 ' skinparam monochrome true
 ' skinparam linetype ortho
 
-actor "bank"
+cloud "PayPal server" as bank <<system>>
 actor "employee"
 actor "client"
 
