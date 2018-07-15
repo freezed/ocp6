@@ -1,9 +1,9 @@
 /' = = = = = = = KEY = = = = = = = '/
 class address {
-    pyk(id,Integer)
+    pyk(id)
 }
 class client {
-    pyk(id, Integer)
+    pyk(id)
     fnk(delivery_address_id,address.id)
     fnk(billing_address_id,address.id)
 }
@@ -12,20 +12,20 @@ class composition {
     pfk(ingredient_id,ingredient.id)
 }
 class employee {
-    pyk(id,Integer)
+    pyk(id)
     fnk(address_id,address.id)
     fnk(phone_id,phone.id)
 }
 class ingredient {
-    pyk(id,Integer)
+    pyk(id)
 }
 class line_basket {
-    pyk(id,Integer)
+    pyk(id)
     fnk(basket_id,basket.id)
     fnk(pizza_id,pizza.id)
 }
 class basket {
-    pyk(id,Integer)
+    pyk(id)
     fnk(employee_id,employee.id)
     fnk(client_id,client.id)
     fnk(restaurant_id,restaurant.id)
@@ -35,16 +35,16 @@ class payment_history {
     pfk(basket_id,basket.id)
 }
 class payment_solution {
-    pyk(id,Integer)
+    pyk(id)
 }
 class phone {
-    pyk(id,Integer)
+    pyk(id)
 }
 class pizza {
-    pyk(id,Integer)
+    pyk(id)
 }
 class restaurant {
-    pyk(id,Integer)
+    pyk(id)
     fnk(address_id,address.id)
     fnk(phone_id,phone.id)
 }
