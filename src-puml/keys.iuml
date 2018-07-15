@@ -19,12 +19,12 @@ class employee {
 class ingredient {
     pyk(id,Integer)
 }
-class line_order {
+class line_basket {
     pyk(id,Integer)
-    fnk(order_id,order.id)
+    fnk(basket_id,basket.id)
     fnk(pizza_id,pizza.id)
 }
-class order {
+class basket {
     pyk(id,Integer)
     fnk(employee_id,employee.id)
     fnk(client_id,client.id)
@@ -32,7 +32,7 @@ class order {
 }
 class payment_history {
     pfk(payment_solution_id,payment_solution.id)
-    pfk(order_id,order.id)
+    pfk(basket_id,basket.id)
 }
 class payment_solution {
     pyk(id,Integer)
