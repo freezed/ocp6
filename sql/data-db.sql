@@ -62,18 +62,18 @@ INSERT INTO `ocp6`.`restaurant`(`address_id`,`name`,`phone_id`)VALUES
 (13,"milano",7),
 (14,"torino",8);
 
-INSERT INTO `ocp6`.`client`(`billing_address_id`,`delivery_address_id`,`phone_id`,`1st_name`,`name`,`login`,`password`)VALUES
-(1,1,1,"lucky","luke","LuckyLuke","«j»xp'«'-« xz'"),
-(2,3,2,"tin","tin","reporter","bé(@«b (@é)"),
-(4,5,3,"largo","winch","superlargo","pkoèdqo@"),
-(6,6,4,"gaston","lagaffe","menfin","uie,k yxsqc,"),
-(7,7,5,"ast","érix","asterixlegaulois","b@ -ql(('");
+INSERT INTO `ocp6`.`client`(`billing_address_id`,`delivery_address_id`,`phone_id`,`1st_name`,`name`,`login`,`password_sha2bin`)VALUES
+(1,1,1,"lucky","luke","LuckyLuke",UNHEX(SHA2('passlucky'),
+(2,3,2,"tin","tin","reporter",UNHEX(SHA2('passtintin'),
+(4,5,3,"largo","winch","superlargo",UNHEX(SHA2('passlargo'),
+(6,6,4,"gaston","lagaffe","menfin",UNHEX(SHA2('passgaston'),
+(7,7,5,"ast","érix","asterixlegaulois",UNHEX(SHA2('passasterix');
 
-INSERT INTO `ocp6`.`employee`(`address_id`,`phone_id`,`1st_name`,`name`)VALUES
-(8,9,"jesse","custer"),
-(9,10,"claudia","cristiani"),
-(10,11,"litteul","kevin"),
-(11,12,"bronsky","proko");
+INSERT INTO `ocp6`.`employee`(`address_id`,`phone_id`,`1st_name`,`name`,`login`,`password_sha2bin`)VALUES
+(8,9,"jesse","custer", "jcuster", UNHEX(SHA2('passjesse'))),
+(9,10,"claudia","cristiani", "ccristiani", UNHEX(SHA2('passclaudia'))),
+(10,11,"litteul","kevin", "lkevin", UNHEX(SHA2('passkevin'))),
+(11,12,"bronsky","proko", "bproko", UNHEX(SHA2('passbronsky')));
 
 INSERT INTO `ocp6`.`composition`(`pizza_id`,`ingredient_id`,`quantity`)VALUES
 (1,11,60),

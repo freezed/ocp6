@@ -12,7 +12,7 @@ class client {
     att(name,String,VARCHAR(30))
     att(mail,String,VARCHAR(30))
     att(login,String,VARCHAR(30))
-    att(password,String,VARCHAR(30))
+    att(password_sha2bin,String,BINARY(32))
 }
 class composition {
     att(quantity,Real,DECIMAL(6,2))
@@ -22,7 +22,7 @@ class employee {
     att(name,String,VARCHAR(30))
     att(mail,String,VARCHAR(30))
     att(login,String,VARCHAR(30))
-    att(password,String,VARCHAR(30))
+    att(password_sha2bin,String,BINARY(32))
 }
 class ingredient {
     label,String,VARCHAR(30))

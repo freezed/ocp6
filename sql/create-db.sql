@@ -57,7 +57,7 @@ CREATE TABLE client(
     `1st_name` VARCHAR(30) NOT NULL,
     `name` VARCHAR(30) NOT NULL,
     `login` VARCHAR(30) NOT NULL,
-    `password` VARCHAR(30) NOT NULL
+    `password_sha2bin` BINARY(32) NOT NULL
 ) ENGINE=INNODB;
 
 CREATE TABLE composition(
@@ -88,7 +88,9 @@ CREATE TABLE employee(
         REFERENCES  phone(id)
         ON DELETE CASCADE ON UPDATE RESTRICT,
     `1st_name` VARCHAR(30) NOT NULL,
-    `name` VARCHAR(30) NOT NULL
+    `name` VARCHAR(30) NOT NULL,
+    `login` VARCHAR(30) NOT NULL,
+    `password_sha2bin` BINARY(32) NOT NULL
 ) ENGINE=INNODB;
 
 CREATE TABLE restaurant(
