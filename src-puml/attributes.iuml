@@ -2,7 +2,7 @@
 class address {
     att(label,String,VARCHAR(30) NOT NULL)
     att(name,String,VARCHAR(30) NOT NULL)
-    att(line1,String,VARCHAR(20) NOT NULL)
+    att(line1,String,VARCHAR(30) NOT NULL)
     att(line2,String [0..1],VARCHAR(20))
     att(zip,String,VARCHAR(5) NOT NULL)
     att(city,String,VARCHAR(20) NOT NULL)
