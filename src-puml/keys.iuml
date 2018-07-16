@@ -8,8 +8,8 @@ class client {
     fnk(billing_address_id,address.id)
 }
 class composition {
-    pfk(pizza_id,pizza.id)
-    pfk(ingredient_id,ingredient.id)
+    pfk(pizza_id,pizza.id,TINYINT NOT NULL UNSIGNED)
+    pfk(ingredient_id,ingredient.id,TINYINT NOT NULL UNSIGNED)
 }
 class employee {
     pyk(id)
@@ -17,38 +17,38 @@ class employee {
     fnk(phone_id,phone.id)
 }
 class ingredient {
-    pyk(id)
+    pyk(id,TINYINT NOT NULL UNSIGNED)
 }
 class line_basket {
     pyk(id)
     fnk(basket_id,basket.id)
-    fnk(pizza_id,pizza.id)
+    fnk(pizza_id,pizza.id,TINYINT NOT NULL UNSIGNED)
 }
 class basket {
     pyk(id)
     fnk(employee_id,employee.id)
     fnk(client_id,client.id)
-    fnk(restaurant_id,restaurant.id)
+    fnk(restaurant_id,restaurant.id,TINYINT NOT NULL UNSIGNED)
 }
 class payment_history {
-    pfk(payment_solution_id,payment_solution.id)
+    pfk(payment_solution_id,payment_solution.id,TINYINT NOT NULL UNSIGNED)
     pfk(basket_id,basket.id)
 }
 class payment_solution {
-    pyk(id)
+    pyk(id,TINYINT NOT NULL UNSIGNED)
 }
 class phone {
     pyk(id)
 }
 class pizza {
-    pyk(id)
+    pyk(id,TINYINT NOT NULL UNSIGNED)
 }
 class restaurant {
-    pyk(id)
+    pyk(id,TINYINT NOT NULL UNSIGNED)
     fnk(address_id,address.id)
     fnk(phone_id,phone.id)
 }
 class stock {
-    pfk(ingredient_id,ingredient.id)
-    pfk(restaurant_id,restaurant.id)
+    pfk(ingredient_id,ingredient.id,TINYINT NOT NULL UNSIGNED)
+    pfk(restaurant_id,restaurant.id,TINYINT NOT NULL UNSIGNED)
 }

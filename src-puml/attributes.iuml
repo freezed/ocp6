@@ -1,61 +1,61 @@
 /' = = = = = = = ATTRIBUTE = = = = = = = '/
 class address {
-    att(Label,String,VARCHAR(30))
-    att(name,String,VARCHAR(30))
-    att(line1,String,VARCHAR(20))
-    att(line2,String,VARCHAR(20))
-    att(zip,String,VARCHAR(5))
-    att(city,String,VARCHAR(20))
+    att(Label,String,VARCHAR(30) NOT NULL)
+    att(name,String,VARCHAR(30) NOT NULL)
+    att(line1,String,VARCHAR(20) NOT NULL)
+    att(line2,String [0..1],VARCHAR(20))
+    att(zip,String,VARCHAR(5) NOT NULL)
+    att(city,String,VARCHAR(20) NOT NULL)
 }
 class client {
-    att(1st_name,String,VARCHAR(30))
-    att(name,String,VARCHAR(30))
-    att(mail,String,VARCHAR(30))
-    att(login,String,VARCHAR(30))
-    att(password_sha2bin,String,BINARY(32))
+    att(1st_name,String,VARCHAR(30) NOT NULL)
+    att(name,String,VARCHAR(30) NOT NULL)
+    att(mail,String,VARCHAR(40) NOT NULL)
+    att(login,String,VARCHAR(30) NOT NULL)
+    att(password_sha2bin,String,BINARY(32) NOT NULL)
 }
 class composition {
-    att(quantity,Real,DECIMAL(6,2))
+    att(quantity,Integer,TINYINT NOT NULL UNSIGNED)
 }
 class employee {
-    att(1st_name,String,VARCHAR(30))
-    att(name,String,VARCHAR(30))
-    att(mail,String,VARCHAR(30))
-    att(login,String,VARCHAR(30))
-    att(password_sha2bin,String,BINARY(32))
+    att(1st_name,String,VARCHAR(30) NOT NULL)
+    att(name,String,VARCHAR(30) NOT NULL)
+    att(mail,String,VARCHAR(30) NOT NULL)
+    att(login,String,VARCHAR(30) NOT NULL)
+    att(password_sha2bin,String,BINARY(32) NOT NULL)
 }
 class ingredient {
-    label,String,VARCHAR(30))
-    att(unit,String,VARCHAR(30))
+    att(label,String,VARCHAR(30) NOT NULL)
+    att(unit,String,VARCHAR(10) NOT NULL)
 }
 class line_basket {
-    att(quantity,Integer,INTEGER)
-    att(tax_rate100,Real,DECIMAL(6,2))
-    att(unit_price_ex_tax,Real,DECIMAL(6,2))
+    att(quantity,Integer,TINYINT NOT NULL UNSIGNED)
+    att(tax_rate100,Real,DECIMAL(6,2) NOT NULL)
+    att(unit_price_ex_tax,Real,DECIMAL(6,2) NOT NULL)
 }
 class basket {
-    att(invoice_num,String,VARCHAR(10))
-    att(date,Date,DATETIME)
-    att(status,String,VARCHAR(10))
+    att(invoice_num,String [0..1],VARCHAR(10))
+    att(date,Date,DATETIME NOT NULL)
+    att(status,String,VARCHAR(10) NOT NULL)
 }
 class payment_history {
-    att(amount,Real,DECIMAL(6,2))
-    att(date,Date,DATETIME)
+    att(amount,Real,DECIMAL(6,2) NOT NULL)
+    att(date,Date,DATETIME NOT NULL)
 }
 class payment_solution {
-    att(label,String,VARCHAR(30))
+    att(label,String,VARCHAR(10) NOT NULL)
 }
 class pizza {
-    att(name,String,VARCHAR(10))
-    att(unit_price_ex_tax,Real,DECIMAL(6,2))
-    att(tax_rate100,Real,DECIMAL(6,2))
+    att(name,String,VARCHAR(10) NOT NULL)
+    att(unit_price_ex_tax,Real,DECIMAL(6,2) NOT NULL)
+    att(tax_rate100,Real,DECIMAL(6,2) NOT NULL)
 }
 class phone {
-    att(number,String,VARCHAR(10))
+    att(number,String,VARCHAR(10) NOT NULL)
 }
 class restaurant {
-    att(name,String,VARCHAR(10))
+    att(name,String,VARCHAR(10) NOT NULL)
 }
 class stock {
-    att(quantity,Real,DECIMAL(6,2))
+    att(quantity,Integer,TINYINT NOT NULL UNSIGNED)
 }
