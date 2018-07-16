@@ -6,6 +6,7 @@ class client {
     pyk(id)
     fnk(delivery_address_id,address.id)
     fnk(billing_address_id,address.id)
+    fnk(phone_id,phone.id)
 }
 class composition {
     pfk(pizza_id,pizza.id,TINYINT NOT NULL UNSIGNED)
