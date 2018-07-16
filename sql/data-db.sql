@@ -62,18 +62,18 @@ INSERT INTO `ocp6`.`restaurant`(`address_id`,`name`,`phone_id`)VALUES
 (13,"milano",7),
 (14,"torino",8);
 
-INSERT INTO `ocp6`.`client`(`billing_address_id`,`delivery_address_id`,`phone_id`,`1st_name`,`name`,`login`,`password_sha2bin`)VALUES
-(1,1,1,"lucky","luke","LuckyLuke",UNHEX(SHA2('passlucky'),
-(2,3,2,"tin","tin","reporter",UNHEX(SHA2('passtintin'),
-(4,5,3,"largo","winch","superlargo",UNHEX(SHA2('passlargo'),
-(6,6,4,"gaston","lagaffe","menfin",UNHEX(SHA2('passgaston'),
-(7,7,5,"ast","érix","asterixlegaulois",UNHEX(SHA2('passasterix');
+INSERT INTO `ocp6`.`client`(`billing_address_id`,`delivery_address_id`,`phone_id`,`1st_name`,`name`,`mail`,`login`,`password_sha2bin`)VALUES
+(1,1,1,"lucky","luke","luke@mail.fr","LuckyLuke",UNHEX(SHA2('passlucky',256))),
+(2,3,2,"tin","tin","tin@mail.fr","reporter",UNHEX(SHA2('passtintin',256))),
+(4,5,3,"largo","winch","winch@mail.fr","superlargo",UNHEX(SHA2('passlargo',256))),
+(6,6,4,"gaston","lagaffe","agaffe@mail.fr","menfin",UNHEX(SHA2('passgaston',256))),
+(7,7,5,"ast","érix","asterix@mail.fr","asterixlegaulois",UNHEX(SHA2('passasterix',256)));
 
-INSERT INTO `ocp6`.`employee`(`address_id`,`phone_id`,`1st_name`,`name`,`login`,`password_sha2bin`)VALUES
-(8,9,"jesse","custer", "jcuster", UNHEX(SHA2('passjesse'))),
-(9,10,"claudia","cristiani", "ccristiani", UNHEX(SHA2('passclaudia'))),
-(10,11,"litteul","kevin", "lkevin", UNHEX(SHA2('passkevin'))),
-(11,12,"bronsky","proko", "bproko", UNHEX(SHA2('passbronsky')));
+INSERT INTO `ocp6`.`employee`(`address_id`,`phone_id`,`1st_name`,`name`,`mail`,`login`,`password_sha2bin`)VALUES
+(8,9,"jesse","custer","custer@mail.fr","jcuster",UNHEX(SHA2('passjesse',256))),
+(9,10,"claudia","cristiani","cristiani@mail.fr","ccristiani",UNHEX(SHA2('passclaudia',256))),
+(10,11,"litteul","kevin","kevin@mail.fr","lkevin",UNHEX(SHA2('passkevin',256))),
+(11,12,"bronsky","proko","proko@mail.fr","bproko",UNHEX(SHA2('passbronsky',256)));
 
 INSERT INTO `ocp6`.`composition`(`pizza_id`,`ingredient_id`,`quantity`)VALUES
 (1,11,60),
