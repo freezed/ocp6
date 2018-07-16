@@ -1,55 +1,68 @@
 /' = = = = = = = KEY = = = = = = = '/
 class address {
     pyk(id)
+    ..
 }
 class client {
     pyk(id)
     fnk(delivery_address_id,address.id)
     fnk(billing_address_id,address.id)
     fnk(phone_id,phone.id)
+    ..
 }
 class composition {
-    pfk(pizza_id,pizza.id,TINYINT NOT NULL UNSIGNED)
-    pfk(ingredient_id,ingredient.id,TINYINT NOT NULL UNSIGNED)
+    pfk(pizza_id,pizza.id,TINYINT UNSIGNED NOT NULL)
+    pfk(ingredient_id,ingredient.id,TINYINT UNSIGNED NOT NULL)
+    ..
 }
 class employee {
     pyk(id)
     fnk(address_id,address.id)
     fnk(phone_id,phone.id)
+    ..
 }
 class ingredient {
-    pyk(id,TINYINT NOT NULL UNSIGNED)
+    pyk(id,TINYINT UNSIGNED NOT NULL)
+    ..
 }
 class line_basket {
     pyk(id)
     fnk(basket_id,basket.id)
-    fnk(pizza_id,pizza.id,TINYINT NOT NULL UNSIGNED)
+    fnk(pizza_id,pizza.id,TINYINT UNSIGNED NOT NULL)
+    ..
 }
 class basket {
     pyk(id)
     fnk(employee_id,employee.id)
     fnk(client_id,client.id)
-    fnk(restaurant_id,restaurant.id,TINYINT NOT NULL UNSIGNED)
+    fnk(restaurant_id,restaurant.id,TINYINT UNSIGNED NOT NULL)
+    ..
 }
 class payment_history {
-    pfk(payment_solution_id,payment_solution.id,TINYINT NOT NULL UNSIGNED)
+    pfk(payment_solution_id,payment_solution.id,TINYINT UNSIGNED NOT NULL)
     pfk(basket_id,basket.id)
+    ..
 }
 class payment_solution {
-    pyk(id,TINYINT NOT NULL UNSIGNED)
+    pyk(id,TINYINT UNSIGNED NOT NULL)
+    ..
 }
 class phone {
     pyk(id)
+    ..
 }
 class pizza {
-    pyk(id,TINYINT NOT NULL UNSIGNED)
+    pyk(id,TINYINT UNSIGNED NOT NULL)
+    ..
 }
 class restaurant {
-    pyk(id,TINYINT NOT NULL UNSIGNED)
+    pyk(id,TINYINT UNSIGNED NOT NULL)
     fnk(address_id,address.id)
     fnk(phone_id,phone.id)
+    ..
 }
 class stock {
-    pfk(ingredient_id,ingredient.id,TINYINT NOT NULL UNSIGNED)
-    pfk(restaurant_id,restaurant.id,TINYINT NOT NULL UNSIGNED)
+    pfk(ingredient_id,ingredient.id,TINYINT UNSIGNED NOT NULL)
+    pfk(restaurant_id,restaurant.id,TINYINT UNSIGNED NOT NULL)
+    ..
 }
