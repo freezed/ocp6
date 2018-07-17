@@ -24,7 +24,18 @@ _Ce document est une synthèse de présentation du projet, pour plus de détails
 ![State machine diagram - order](https://raw.githubusercontent.com/freezed/ocp4/master/img/0230-uml-order-state_diagram.png)
 
 ---
-## Modélisation UML
+## Modélisation UML, diagrammes
+
+## Composant
+
+![Diagramme de composant](https://raw.githubusercontent.com/freezed/ocp6/master/component.png "Diagramme de composant")
+
+
+## Déploiement
+
+![Diagramme de déploiement](https://raw.githubusercontent.com/freezed/ocp6/master/deployment.png "Diagramme de déploiement")
+
+## Classes
 
 ![Modèle fonctionnel simple](https://raw.githubusercontent.com/freezed/ocp6/master/functional_model_light.png "Desription du modèle fonctionnel simple")
 
