@@ -1,0 +1,26 @@
+@startuml
+
+title Diagramme de clase
+
+/' = = = = = = = STYLE = = = = = = = '/
+hide empty methods
+hide <<assoc>> circle
+skinparam class {
+    BackgroundColor<<assoc>> lightblue
+}
+
+/' = = = = = = = MACRO = = = = = = = '/
+!define rel(a,b,c,d,e) a "b" c "d" e
+!define rea(a,b,c,d) (a, b) c d
+!define att(n,u,s) n : u
+
+/' = = = = = = = CLASSE = = = = = = = '/
+!includeurl https://raw.githubusercontent.com/freezed/ocp6/master/src-puml/classes.iuml
+
+/' = = = = = = = ATTRIBUTE = = = = = = = '/
+!includeurl https://raw.githubusercontent.com/freezed/ocp6/master/src-puml/attributes.iuml
+
+/' = = = = = = = ASSOCIATION = = = = = = = '/
+!includeurl https://raw.githubusercontent.com/freezed/ocp6/master/src-puml/associations.iuml
+
+@enduml
