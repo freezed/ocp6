@@ -1,40 +1,43 @@
 @startuml
-title Diagrame de déploiement «OCpizza»
+title Diagramme de déploiement «OCPweb»
 
 /' = = = = = = = STYLE = = = = = = = '/
 ' skinparam monochrome true
 ' skinparam linetype ortho
 
 cloud "PayPal server" as bank <<system>>
-actor "employee"
-actor "client"
+actor "Employee" <<LAN>>
+cloud "Clients" <<internet>>
 
 /' = = = = = = = ARTIFACT = = = = = = = '/
 
-Frame  "OCpizza" <<Deployment>> {
+Frame  "OCPweb" {
 
-    node "Apache HTTP server" as ws {
-        node "virtualHost Front" as vhf
-        node "virtualHost Back" as vhb
-        artifact "Django app" as dapp
+    node "Nginx\n HTTP server" as nginx
+
+    database "PostgreSQL\n server" as psql
+
+    node "File system" as fs {
+        node "staticfiles" as stat
     }
 
-    database "MariaDB server" as dbs {
-        file "create-db.sql" as scriptdb
-        rectangle "Database" as db
+    node "supervisor" as supervisor {
+        node "Gunicorn WSGI\n HTTP server" as gunicorn
+        node "Django" as django
     }
+
 }
 
 /' = = = = = = = RELATION = = = = = = = '/
 
-bank -up- dapp
-client -- vhf
-employee -- vhb
+bank -up- nginx
+Clients -up- nginx
+Employee -up- nginx
 
-ws -- dbs
-vhf -- dapp
-dapp -up- vhb
-
-scriptdb . db
+django .. stat
+django - gunicorn
+gunicorn -- nginx
+nginx - stat
+django -up- psql
 
 @enduml
